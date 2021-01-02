@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $judul = "Dashboard";
         $students = Student::all();
-        $mails = Contact::all();
-        return view('home', compact('judul', 'students', 'mails'));
+        $messages = Contact::all();
+        return view('home', compact('judul', 'students', 'messages'));
     }
 }

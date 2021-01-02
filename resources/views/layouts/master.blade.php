@@ -194,6 +194,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('assets/themes') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/themes') }}/dist/js/adminlte.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/jszip/jszip.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script src="{{ asset('assets/themes') }}/dist/js/script.js"></script>
 </body>
 
 </html>

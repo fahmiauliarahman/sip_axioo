@@ -13,7 +13,7 @@
             <div class="icon">
                 <i class="fas fa-user-plus"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="{{ route('student.index') }}" class="small-box-footer">
                 More info <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
@@ -21,14 +21,14 @@
     <div class="col-6">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>{{ count($mails) }}</h3>
+                <h3>{{ count($messages) }}</h3>
 
-                <p>Mail</p>
+                <p>Messages</p>
             </div>
             <div class="icon">
                 <i class="fas fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="{{ route('message.index') }}" class="small-box-footer">
                 More info <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
