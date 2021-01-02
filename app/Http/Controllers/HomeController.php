@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
+use App\Student;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.master');
+        $judul = "Dashboard";
+        $students = Student::all();
+        $mails = Contact::all();
+        return view('home', compact('judul', 'students', 'mails'));
     }
 }
