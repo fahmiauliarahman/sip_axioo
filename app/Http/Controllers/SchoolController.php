@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\School;
+use App\Student;
 use Illuminate\Http\Request;
 
 class SchoolController extends Controller
@@ -116,9 +117,16 @@ class SchoolController extends Controller
      */
     public function destroy($id)
     {
-        School::destroy($id);
-        $data['success'] = true;
-        $data['messages'] = "Data Deleted Successfully.";
+        $checkStudent = Student::where('school_id', $id)->first();
+
+        if ($checkStudent) {
+            $data['success'] = false;
+            $data['messages'] = "This School is Already Assigned to Students, Please remove them first.";
+        } else {
+            School::destroy($id);
+            $data['success'] = true;
+            $data['messages'] = "Data Deleted Successfully.";
+        }
         return response()->json($data, 200);
     }
 }

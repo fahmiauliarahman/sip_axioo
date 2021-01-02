@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -15,6 +17,12 @@ class StudentController extends Controller
     {
         $judul = "Students";
         return view('student.index', compact('judul'));
+    }
+
+    public function data()
+    {
+        $data = DB::table('students')->leftJoin('departments', 'students.department_id', '=', 'departments.id')->leftJoin('schools', 'students.school_id', '=', 'schools.id')->select('students.*', 'departments.dpt_name', 'schools.school_name')->get();
+        return response()->json($data, 200);
     }
 
     public function test()
@@ -40,7 +48,23 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student = Student::create([
+            'full_name' => $request->name,
+            'school_id' => $request->school_id,
+            'grade' => $request->grade,
+            'phone_num' => $request->phone_number,
+            'email' => $request->email,
+            'department_id' => $request->dept_id,
+        ]);
+
+        if ($student) {
+            $data['success'] = true;
+            $data['messages'] = "Student Saved.";
+        } else {
+            $data['success'] = false;
+            $data['messages'] = "Something went wrong - Ajax Failed.";
+        }
+        return response()->json($data, 200);
     }
 
     /**
@@ -51,7 +75,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('students')->leftJoin('departments', 'students.department_id', '=', 'departments.id')->leftJoin('schools', 'students.school_id', '=', 'schools.id')->select('students.*', 'departments.dpt_name', 'schools.school_name')->where('students.id', $id)->first();
+        return response()->json($data, 200);
     }
 
     /**
@@ -74,7 +99,24 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::where('id', $id)
+        ->update([
+            'full_name' => $request->name,
+            'school_id' => $request->school_id,
+            'grade' => $request->grade,
+            'phone_num' => $request->phone_number,
+            'email' => $request->email,
+            'department_id' => $request->dept_id,
+        ]);
+
+        if ($student) {
+            $data['success'] = true;
+            $data['messages'] = "Student Successfully Updated!";
+        } else {
+            $data['success'] = false;
+            $data['messages'] = "Something went wrong - Ajax Update Failed.";
+        }
+        return response()->json($data, 200);
     }
 
     /**
@@ -85,6 +127,9 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Student::destroy($id);
+        $data['success'] = true;
+        $data['messages'] = "Data Deleted Successfully.";
+        return response()->json($data, 200);
     }
 }

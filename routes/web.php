@@ -22,6 +22,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 Route::get('school_data', 'SchoolController@data')->name('school.data');
 Route::get('department_data', 'DepartmentController@data')->name('department.data');
+Route::get('student_data', 'StudentController@data')->name('student.data');
+Route::get('message_data', 'MessageController@data')->name('message.data');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('student', 'StudentController');
 Route::resource('message', 'MessageController');

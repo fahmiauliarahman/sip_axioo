@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -13,7 +14,14 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $judul = "Messages";
+        return view('message.index', compact('judul'));
+    }
+
+    public function data()
+    {
+        $data = Message::all();
+        return response()->json($data, 200);
     }
 
     /**
@@ -45,7 +53,8 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Message::find($id);
+        return response()->json($data, 200);
     }
 
     /**
@@ -79,6 +88,9 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Message::destroy($id);
+        $data['success'] = true;
+        $data['messages'] = "Data Deleted Successfully.";
+        return response()->json($data, 200);
     }
 }
