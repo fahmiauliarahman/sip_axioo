@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Department;
+use App\School;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -26,8 +28,10 @@ class HomeController extends Controller
     public function index()
     {
         $judul = "Dashboard";
-        $students = Student::all();
-        $messages = Contact::all();
-        return view('home', compact('judul', 'students', 'messages'));
+        $students = Student::all()->count();
+        $messages = Contact::all()->count();
+        $schools = School::all()->count();
+        $departments = Department::all()->count();
+        return view('home', compact('judul', 'students', 'messages', 'schools', 'departments'));
     }
 }

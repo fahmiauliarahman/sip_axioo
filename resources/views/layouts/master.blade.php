@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AdminLTE 3 | Starter</title>
+    <title>SIP Axioo - {{ $judul }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -100,6 +100,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Master Data
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="{{ route('school.index') }}"
+                                        class="nav-link {{ $judul === "School" ? 'active' : '' }}">
+                                        <i class="fas fa-school nav-icon"></i>
+                                        <p>School</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('department.index') }}"
+                                        class="nav-link {{ $judul === "Department" ? 'active' : '' }}">
+                                        <i class="fas fa-book-open nav-icon"></i>
+                                        <p>Department</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="{{ route('student.index') }}"
                                 class="nav-link {{ $judul === "Students" ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
@@ -132,8 +158,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Starter Page</li>
+                                @yield('navigasi')
                             </ol>
                         </div>
                         <!-- /.col -->

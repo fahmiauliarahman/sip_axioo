@@ -20,7 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+Route::get('school_data', 'SchoolController@data')->name('school.data');
+Route::get('department_data', 'DepartmentController@data')->name('department.data');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('student', 'StudentController');
 Route::resource('message', 'MessageController');
+Route::resource('school', 'SchoolController');
+Route::resource('department', 'DepartmentController');
 });

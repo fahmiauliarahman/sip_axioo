@@ -2,11 +2,11 @@
 
 @section('konten')
 <div class="row">
-    <div class="col-6">
+    <div class="col-sm-6 col-md-3">
         <!-- small card -->
         <div class="small-box bg-primary">
             <div class="inner">
-                <h3>{{ count($students) }}</h3>
+                <h3>{{ $students }}</h3>
 
                 <p>Students</p>
             </div>
@@ -18,10 +18,10 @@
             </a>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-sm-6 col-md-3">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>{{ count($messages) }}</h3>
+                <h3>{{ $messages }}</h3>
 
                 <p>Messages</p>
             </div>
@@ -29,6 +29,36 @@
                 <i class="fas fa-envelope"></i>
             </div>
             <a href="{{ route('message.index') }}" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>{{ $schools }}</h3>
+
+                <p>School</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-school"></i>
+            </div>
+            <a href="{{ route('school.index') }}" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3>{{ $departments }}</h3>
+
+                <p>Department</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <a href="{{ route('department.index') }}" class="small-box-footer">
                 More info <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
