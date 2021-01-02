@@ -18,6 +18,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/themes') }}/dist/css/adminlte.min.css" />
     <link rel="stylesheet" href="{{ asset('assets/themes') }}/dist/css/custom.min.css" />
+    <link rel="stylesheet"
+        href="{{ asset('assets/themes') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="{{ asset('assets/themes') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <script src="{{ asset('assets/themes') }}/plugins/swaljs/sweetalert.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -209,6 +214,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('assets/themes') }}/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="{{ asset('assets/themes') }}/plugins/jquery-validation/additional-methods.min.js"></script>
     <script src="{{ asset('assets/themes') }}/dist/js/script.js"></script>
+    @include('sweet::alert')
+    @yield('js')
 </body>
 
 </html>

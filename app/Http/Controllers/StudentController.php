@@ -17,6 +17,11 @@ class StudentController extends Controller
         return view('student.index', compact('judul'));
     }
 
+    public function test()
+    {
+        return redirect(route('student.index'))->with('success', 'hai');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
