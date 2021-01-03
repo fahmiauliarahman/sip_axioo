@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#keluar">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Keluar Aplikasi
+                            Sign Out
                         </a>
                     </div>
                 </li>
@@ -197,19 +197,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="keluarLabel">Keluar Aplikasi</h5>
+                    <h5 class="modal-title" id="keluarLabel">Signing Out</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda Yakin Ingin Keluar Dari Aplikasi?
+                    Are You Sure Want Log Out?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-primary">Ya</button>
+                        <button type="submit" class="btn btn-primary">Yes</button>
                     </form>
                 </div>
             </div>

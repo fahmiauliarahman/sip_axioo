@@ -13,9 +13,10 @@ How to install:
 1. Clone this repository
 2. Install required packages: `composer install`
 3. Duplicate example env and make your own: `cp .env.example .env && nano .env`
-4. Migrate the database: `php artisan migrate`
-5. Insert Sample Data: `php artisan db:seed`
-6. Start Local Development Server `php artisan serve`
+4. Generate Application Key: `php artisan key:generate --ansi`
+5. Migrate the database: `php artisan migrate`
+6. Insert Sample Data: `php artisan db:seed`
+7. Start Local Development Server `php artisan serve`
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
