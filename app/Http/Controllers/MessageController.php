@@ -42,7 +42,15 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!$request->email || !$request->name || !$request->message) {
+            $data['success'] = false;
+            $data['message'] = "Please fill all the required field! (Full Name, Email, Message).";
+        } else {
+            Message::create($request->all());
+            $data['success'] = true;
+            $data['message'] = "Thank you for contacting us. We will reply back to you shortly.";
+        }
+        return response()->json($data, 200);
     }
 
     /**

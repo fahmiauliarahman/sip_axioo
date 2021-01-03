@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
 use App\Department;
+use App\Message;
 use App\School;
 use App\Student;
 use Illuminate\Http\Request;
@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $judul = "Dashboard";
         $students = Student::all()->count();
-        $messages = Contact::all()->count();
+        $messages = Message::all()->count();
         $schools = School::all()->count();
         $departments = Department::all()->count();
         return view('home', compact('judul', 'students', 'messages', 'schools', 'departments'));
